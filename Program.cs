@@ -1,617 +1,799 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArraysAndStrings
+namespace BinaryTreesAndGraphs
 {
     class Program
     {
         static void Main(string[] args)
         {
-            try
-            {
-                #region Input 1.1 :: Is Unique String
-                //Console.WriteLine(ArraysAndString.IsUnique("abcd"));
-                //Console.WriteLine(ArraysAndString.IsUnique("  "));
-                #endregion
+            #region Populate Binary Tree
+            var tree = new BinaryTree(50);
+            tree.Root.Left = new BinaryNode(10);
+            tree.Root.Right = new BinaryNode(60);
+            tree.Root.Left.Left = new BinaryNode(5);
+            tree.Root.Left.Right = new BinaryNode(20);
+            tree.Root.Right.Left = new BinaryNode(55);
+            tree.Root.Right.Left.Left = new BinaryNode(45);
+            tree.Root.Right.Right = new BinaryNode(70);
+            tree.Root.Right.Right.Left = new BinaryNode(65);
+            tree.Root.Right.Right.Right = new BinaryNode(80);
 
-                #region Input 1.2 :: Reverse C-Style String
-                //Console.WriteLine(ArraysAndString.ReverseCStyleSting("abcd0"));
-                #endregion
+            /*tree.InsertIntoBST(4);
+            tree.InsertIntoBST(2);
+            tree.InsertIntoBST(6);
+            tree.InsertIntoBST(5);
+            tree.InsertIntoBST(7);
+            tree.InsertIntoBST(3);
+            tree.InsertIntoBST(1);*/
+            //tree.PrintBSTGivenRange(tree.Root, 3, 6);
+            //tree.KthSmallestElement(tree.Root, 0, 3);
+            //tree.InOrderTraversal(tree.Root);
+            //tree.ReverseInOrder();
+            //var pre = new int[] { 20, 10, 11, 13, 12 };
+            //Console.WriteLine(tree.HasOnlyOneChild(pre, pre.Length));
+            Console.WriteLine(tree.LargestBST());
 
-                #region Input 1.3 :: Remove duplicates from String
-                //Console.WriteLine(ArraysAndString.RemoveDuplicates("abcd"));
-                //Console.WriteLine(ArraysAndString.RemoveDuplicates("a"));
-                //Console.WriteLine(ArraysAndString.RemoveDuplicates(" "));
-                //Console.WriteLine(ArraysAndString.RemoveDuplicates("abcabc"));
-                //Console.WriteLine(ArraysAndString.RemoveDuplicates("aaabbbcccc"));
-                #endregion
+            //var arr = new int[] { 6, -13, -8, 7, 13, 14, 15 };
+            //Console.WriteLine(tree.IsTripletPresent(arr));
+            #endregion
 
-                #region Input 1.4 :: Anagrams ?
-                //Console.WriteLine(ArraysAndString.Anagrams("abcd", "dbca")); //True
-                //Console.WriteLine(ArraysAndString.Anagrams("abcd", "abcd")); //True
-                //Console.WriteLine(ArraysAndString.Anagrams("ishh", "hhis")); //True
-                //Console.WriteLine(ArraysAndString.Anagrams("hhhhhhhhhi", "hhhhihhhhh")); //True
-                //Console.WriteLine(ArraysAndString.Anagrams("ishh", "hiss")); //False
-                //Console.WriteLine(ArraysAndString.Anagrams("ish", "hiss")); //False
-                //Console.WriteLine(ArraysAndString.Anagrams("", "")); //False
-                #endregion
+            #region Populate DLL
+            /*var dll = new DLL();
+            dll.AddNode(1);
+            dll.AddNode(2);
+            dll.AddNode(3);
+            dll.AddNode(4);
+            dll.AddNode(5);*/
+            //Console.WriteLine(dll.RootValue());
+            //dll.PrintNodes();
+            #endregion
 
-                #region Input 1.5 :: Replace Space with %20
-                //Console.WriteLine(ArraysAndString.ReplaceSpaceWith20("a c"));
-                //Console.WriteLine(ArraysAndString.ReplaceSpaceWith20("abc"));
-                //Console.WriteLine(ArraysAndString.ReplaceSpaceWith20(" "));
-                #endregion
+            #region Sorted Array to BST
+            //var sortedArray = new int[] { 11, 12, 13, 14, 15, 16, 17 };
+            //var sortedArray = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+            //tree.SortedArrayToBST(sortedArray, 0, sortedArray.Length - 1);
+            //tree.InOrderTraversal(tree.Root);
+            #endregion
 
-                #region Input 1.6 :: Rotate N*N matrix by 90 degree
-                /*var input = new int[3][];
-                input[0] = new int[3] { 1, 2, 3 };
-                input[1] = new int[3] { 4, 5, 6 };
-                input[2] = new int[3] { 7, 8, 9 };*/
-                /*var input = new int[5][];
-                input[0] = new int[5] { 1, 2, 3, 4, 5 };
-                input[1] = new int[5] { 6, 7, 8, 9, 10 };
-                input[2] = new int[5] { 11, 12, 13, 14, 15 };
-                input[3] = new int[5] { 16, 17, 18, 19, 20 };
-                input[4] = new int[5] { 21, 22, 23, 24, 25 };
-                ArraysAndString.RotateMatrix(input, 3);*/
-                #endregion
+            #region Input
+            //var inOrderPredecessor = tree.InOrderPredecessor(tree.Root, new BinaryNode(7), null);
+            //Console.WriteLine(inOrderPredecessor != null ? inOrderPredecessor.Value : -1);
 
-                #region Row Product Calculator
-                /*var input = new int[3][];
-                input[0] = new int[3] { 1, 2, 3 };
-                input[1] = new int[3] { 0, 1, 16 };
-                input[2] = new int[3] { 3, 3, 1 };
-                ArraysAndString.RowProductCalculator(input);
-                for (var i = 0; i < input.Length; i++)
-                {
-                    if (input[i] != null)
-                    {
-                        for (var j = 0; j < input[i].Length; j++)
-                        {
-                            Console.Write(input[i][j] + " ");
-                        }
-                        Console.WriteLine();
-                    }
-                }*/
-                #endregion
+            /*var inOrderSuccessor = tree.InOrderSuccessor(tree.Root, new BinaryNode(1), null);
+            Console.WriteLine(inOrderSuccessor != null ? inOrderSuccessor.Value : -1);
+            inOrderSuccessor = tree.InOrderSuccessor(tree.Root, new BinaryNode(2), null);
+            Console.WriteLine(inOrderSuccessor != null ? inOrderSuccessor.Value : -1);
+            inOrderSuccessor = tree.InOrderSuccessor(tree.Root, new BinaryNode(3), null);
+            Console.WriteLine(inOrderSuccessor != null ? inOrderSuccessor.Value : -1);
+            inOrderSuccessor = tree.InOrderSuccessor(tree.Root, new BinaryNode(4), null);
+            Console.WriteLine(inOrderSuccessor != null ? inOrderSuccessor.Value : -1);
+            inOrderSuccessor = tree.InOrderSuccessor(tree.Root, new BinaryNode(5), null);
+            Console.WriteLine(inOrderSuccessor != null ? inOrderSuccessor.Value : -1);
+            inOrderSuccessor = tree.InOrderSuccessor(tree.Root, new BinaryNode(6), null);
+            Console.WriteLine(inOrderSuccessor != null ? inOrderSuccessor.Value : -1);
+            inOrderSuccessor = tree.InOrderSuccessor(tree.Root, new BinaryNode(7), null);
+            Console.WriteLine(inOrderSuccessor != null ? inOrderSuccessor.Value : -1);
+            inOrderSuccessor = tree.InOrderSuccessor(tree.Root, null, null);
+            Console.WriteLine(inOrderSuccessor != null ? inOrderSuccessor.Value : -1);
+            inOrderSuccessor = tree.InOrderSuccessor(tree.Root, new BinaryNode(8), null);
+            Console.WriteLine(inOrderSuccessor != null ? inOrderSuccessor.Value : -1);*/
 
-                #region Input 1.7 :: Set Column/Row to 0 if element with 0 is identified
-                /*var input = new int[3][];
-                input[0] = new int[3] { 1, 2, 3 };
-                input[1] = new int[3] { 0, 1, 16 };
-                input[2] = new int[3] { 3, 3, 1 };
-                ArraysAndString.SetRowColumnToZero(input);
-                for (var i = 0; i < input.Length; i++)
-                {
-                    if (input[i] != null)
-                    {
-                        for (var j = 0; j < input[i].Length; j++)
-                        {
-                            Console.Write(input[i][j] + " ");
-                        }
-                        Console.WriteLine();
-                    }
-                }*/
-                #endregion
+            //var tree1 = new BinaryTree(4);
+            //tree1.Root.Left = new BinaryNode(2);
+            //tree1.Root.Left.Left = new BinaryNode(1);
+            //tree1.Root.Left.Right = new BinaryNode(4);
+            //tree1.Root.Right = new BinaryNode(16);
+            //tree1.Root.Right.Left = new BinaryNode(15);
+            //tree1.Root.Right.Right = new BinaryNode(17);
+            //tree1.Root.Right.Left = new BinaryNode(5);
+            //tree1.Root.Right.Right = new BinaryNode(8);
+            //tree1.Root.Right.Right.Right = new BinaryNode(7);
+            //Console.WriteLine(tree1.IsBinarySearchTree());
 
-                #region Solution 1.8 :: StringRotation
-                //var str1 = "vivian";
-                //var str2 = "vianvi";
-                /*var str1 = "apple";
-                var str2 = "pleap";
-                Console.WriteLine(ArraysAndString.StringRotation(str1, str2));*/
-                #endregion
+            //tree.InOrderTraversal(tree.Root);
+            //Console.WriteLine(tree.HeightOfBT());
+            //tree.LevelOrderTraversal();
+            //Console.WriteLine("LCA is {0}", tree.FindLCA(2, 3));
+            //Console.WriteLine("Distance between nodes is {0}", tree.DistanceBetweenNodes(2, 6));
+            //Console.WriteLine("Distance between nodes is {0}", tree.DistanceBetweenNodes(1, 7));
+            //Console.WriteLine("Distance between nodes is {0}", tree.DistanceBetweenNodes(1, 8));
 
-                #region Queue Input
-                /*try
-                {
-                    var ds = new MyQueue(3);
-                    ds.Enqueue(1);
-                    ds.Enqueue(2);
-                    ds.Enqueue(3);
-                    //ds.Enqueue(4);
-                    Console.WriteLine(ds.Dequeue());
-                    Console.WriteLine(ds.Dequeue());
-                    Console.WriteLine(ds.Dequeue());
-                }
-                catch(Exception e)
-                {
-                    Console.WriteLine(e);
-                }*/
-                #endregion
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            /*Console.WriteLine(tree.FindNode(4));
+            Console.WriteLine(tree.FindNode(6));
+            Console.WriteLine(tree.FindNode(7));
+            Console.WriteLine(tree.FindNode(8));*/
+
+            /*var tree = new BinaryTree(1);
+            var root = tree.Root;
+            root.Left = new BinaryNode(2);
+            root.Left.Left = new BinaryNode(4);
+            root.Left.Left.Left = new BinaryNode(8);
+            root.Left.Left.Right = new BinaryNode(9);
+            root.Left.Right = new BinaryNode(5);
+
+            root.Right = new BinaryNode(3);
+            root.Right.Left = new BinaryNode(6);
+            root.Right.Right = new BinaryNode(7);
+            root.Right.Right.Left = new BinaryNode(10);
+            root.Right.Right.Right = new BinaryNode(11);
+
+            tree.PreOrderTraversal(root);
+            Console.WriteLine();
+            tree.InOrderTraversal(root);
+            Console.WriteLine();
+            tree.PostOrderTraversal(root);
+            Console.WriteLine();*/
+            #endregion
+
+            /*var arr1 = new int[] { -14, -8, 6, 7, 13, 14, 15 };
+            var bigO = 0;
+            Console.WriteLine(Trial.BruteForce(arr1, ref bigO));
+            Console.WriteLine(bigO);*/
         }
     }
 
-    #region Arrays and Strings
-    public class ArraysAndString
+    public class Trial
     {
-        #region Solution 1.1 :: Is Unique String
-        public static bool IsUnique(string input)
+        public static bool BruteForce(int[] arr, ref int bigO)
         {
-            var charSet = new bool[256]; //ASCII character set
-            for (var i = 0; i < input.Length; i++)
-            {
-                var intValue = Convert.ToInt32(input[i]);
-                if (charSet[intValue])
-                    return false;
-                charSet[intValue] = true;
-            }
-            return true;
-        }
-        #endregion
-
-        #region Solution 1.2 :: Reverse C-Style String
-        public static string ReverseCStyleSting(string input)
-        {
-            var reverseString = new StringBuilder(input.Length);
-            for (var i = input.Length - 2; i >= 0; i--)
-            {
-                reverseString.Append(input[i]);
-            }
-            reverseString.Append(input[input.Length - 1]);
-            return $"Reversed string :: {reverseString.ToString()}";
-        }
-        #endregion
-
-        #region Solution 1.3 :: Remove duplicates from String
-        public static string RemoveDuplicates(string input)
-        {
-            if (input.Length < 2)
-                return $"Duplicates Removed string :: {input}";
-
-            var duplicateRemoval = new StringBuilder();            
-            for (var i = 0; i < input.Length; i++)
-            {
-                var duplicate = false;
-                for (var j = 0; j < duplicateRemoval.Length; j++)
-                {
-                    if (input[i] == duplicateRemoval[j])
-                    {
-                        duplicate = true;
-                        break;
-                    }
-                }
-                if (!duplicate)
-                {
-                    duplicateRemoval.Append(input[i]);
-                }
-            }
-            return $"Duplicates Removed string :: {duplicateRemoval.ToString()}";
-        }
-        #endregion
-
-        #region Solution 1.4 :: Anagrams ?
-        public static bool Anagrams(string str1, string str2)
-        {
-            //Other solution is to sort both the strings and do a comparison.
-            //var charStr1 = str1.ToCharArray();
-            //var charStr2 = str2.ToCharArray();
-            //Array.Sort(charStr1);
-            //Array.Sort(charStr2);            
-            //Compare both the char arrays and return the output
-
-            if (str1.Length != str2.Length)
+            if (arr == null)
                 return false;
 
-            if (str1.Length == 0 && str2.Length == 0)
-                throw new ArgumentException("Strings can't be empty for Anagram determination");
-
-            var asciiCharSet = new int[256];
-            for (var i = 0; i < str1.Length; i++)
-            {
-                var charCode = Convert.ToInt32(str1[i]);
-                asciiCharSet[charCode] += 1;
-            }
-            for (var i = 0; i < str2.Length; i++)
-            {
-                var charCode = Convert.ToInt32(str2[i]);
-                if (asciiCharSet[charCode] <= 0)
-                    return false;
-                asciiCharSet[charCode] -= 1;
-            }
-            return true;
-        }
-        #endregion
-
-        #region Solution 1.5 :: Replace Space with %20
-        public static string ReplaceSpaceWith20(string input)
-        {
-            var replacedString = new StringBuilder();
-            for(var i = 0; i < input.Length; i++)
-            {
-                if (Convert.ToInt32(input[i]) == 32)
-                    replacedString.Append("%20");
-                else
-                    replacedString.Append(input[i]); 
-            }
-            return replacedString.ToString();
-        }
-        #endregion
-
-        #region Solution 1.6 :: Rotate N*N matrix by 90 degree
-        public static void RotateMatrix(int[][] input)
-        {
-            var matrix = new int[input.Length][];
-            for (var i = 0; i < input.Length; i++)
-            {
-                matrix[i] = new int [input[i].Length];
-            }
-
-            var index = 0;
-            for (var i = input.Length - 1; i >= 0; i--)
-            {
-                for (var j = 0; j < input[i].Length; j++)
-                {
-                    matrix[j][index] = input[i][j];
-                }
-                index++;
-            }
-
-            for (var i = 0; i < matrix.Length; i++)
-            {
-                for (var j = 0; j < matrix[i].Length; j++)
-                {
-                    Console.Write(matrix[i][j] + " ");
-                }
-                Console.WriteLine();
-            }
-        }
-
-        public static void RotateMatrix(int[][] matrix, int n)
-        {
-            for (var layer = 0; layer < n/2; layer++)
-            {
-                var first = layer;
-                var last = (n - 1 - layer);
-
-                for (var i = first; i < last; i++)
-                {
-                    var offset = i - first;
-                    //Top -> temp
-                    var temp = matrix[first][i];
-                    //Left -> Top
-                    matrix[first][i] = matrix[last - offset][first];
-                    //Bottom -> Left
-                    matrix[last - offset][first] = matrix[last][last - offset];
-                    //Right -> Bottom
-                    matrix[last][last - offset] = matrix[i][last];
-                    //temp -> Right
-                    matrix[i][last] = temp;
-                }
-            }
-
-            for (var i = 0; i < matrix.Length; i++)
-            {
-                for (var j = 0; j < matrix.Length; j++)
-                {
-                    Console.Write(matrix[i][j] + " ");
-                }
-                Console.WriteLine();
-            }
-        }
-        #endregion
-
-        #region Row Product Calculator
-        public static void RowProductCalculator(int[][] input)
-        {
-            if (input == null)
-                throw new ArgumentException("Input array can't be null", nameof(input));
-            
-            var length = input.Length;
-            if (length <= 0)
-                throw new ArgumentException("Input array can't be of length Zero", nameof(input));
-
+            var length = arr.Length;
             for (var i = 0; i < length; i++)
             {
-                var product = 1;
-                if (input[i] != null)
+                for (var j = i+1; j < length; j++)
                 {
-                    for (var j = 0; j < input[i].Length; j++)
+                    for (var k = j+1; k < length; k++)
                     {
-                        product *= input[i][j];
+                        bigO += 1;
+                        var calculatedSum = arr[i] + arr[j] + arr[k];
+                        if (calculatedSum == 0)
+                            return true;
                     }
-                    for (var j = 0; j < input[i].Length; j++)
-                    {
-                        input[i][j] = product;
-                    }
-                }
-            }
-        }
-        #endregion
-
-        #region Solution 1.7 :: Set Column/Row to 0 if element with 0 is identified
-        public static void SetRowColumnToZero(int[][] input)
-        {
-            if (input == null)
-                throw new ArgumentException("Input array can't be null", nameof(input));
-
-            var length = input.Length;
-            if (length <= 0)
-                throw new ArgumentException("Input array can't be of length Zero", nameof(input));
-            
-            var xAxis = new int[input.Length];
-            var yAxis = new int[input[0] == null ? input.Length : input[0].Length];
-
-            for (var i = 0; i < length; i++)
-            {
-                if (input[i] != null)
-                {
-                    for (var j = 0; j < input[i].Length; j++)
-                    {
-                        if (input[i][j] == 0)
-                        {
-                            xAxis[i] = 1;
-                            yAxis[j] = 1;
-                        }
-                    }
-                }
-            }
-
-            for (var i = 0; i < length; i++)
-            {
-                if (input[i] != null)
-                {
-                    for (var j = 0; j < input[i].Length; j++)
-                    {
-                        if (xAxis[i] == 1 || yAxis[j] == 1)
-                            input[i][j] = 0;
-                    }
-                }
-            }
-
-            /*for (var i = 0; i < xAxis.Length; i++)
-            {
-                if (xAxis[i] == true)
-                {
-                    var rowLength = input[i].Length;
-                    for (var j = 0; j < rowLength; j++)
-                    {
-                        input[i][j] = 0;
-                    }
-                }
-            }
-
-            for (var j = 0; j < yAxis.Length; j++)
-            {
-                if (yAxis[j] == true)
-                {
-                    var columnLength = input.Length;
-                    for (var i = 0; i < columnLength; i++)
-                    {
-                        input[i][j] = 0;
-                    }
-                }
-            }*/
-        }
-        #endregion
-
-        #region Solution 1.8 :: StringRotation
-        public static bool StringRotation(string str1, string str2)
-        {
-            //Optimal solution
-            //str1 + str1 and check if str2 is a substring of concatenated string
-            //pleap + pleap will give pleappleap and apple is a substring of it. 
-
-            if (str1.Length != str2.Length)
-                return false;
-
-            var charArray1 = str1.ToCharArray();
-            var charArray2 = str2.ToCharArray();
-            var length = str1.Length;
-            
-            for (var i = 0; i < length; i++)
-            {
-                if (str1[i] == str2[0])
-                {
-                    if (charArray1[(length + i - 1) % length] != charArray2[str2.Length - 1])
-                    {
-                        continue;
-                    }
-
-                    var substr1 = new string(charArray1, i, length - i) + new string(charArray1, 0, i);
-                    var substr2 = new string(charArray2);
-                    return IsSubString(substr1, substr2);
                 }
             }
             return false;
         }
+    }
 
-        private static bool IsSubString(string str1, string str2)
+    #region Binary Tree
+    public class BinaryTree
+    {
+        #region Initial Variables
+        private BinaryNode _root;
+        private int _height;
+        public BinaryNode Root { get { return _root; } }
+
+        //Below variables for calculating distance between two nodes
+        private bool n1, n2 = false;
+        private int lcaLevel;
+        private int d1, d2 = -1;
+
+        public BinaryTree()
         {
-            if (str1.GetHashCode() == str2.GetHashCode())
+
+        }
+        public BinaryTree(int value)
+        {
+            _root = new BinaryNode(value);
+        }
+        #endregion
+
+        #region 1. InOrderSuccessor of BST
+        public BinaryNode InOrderSuccessor(BinaryNode root, BinaryNode node, BinaryNode successor)
+        {
+            if (root == null || node == null)
+            {
+                return successor;
+            }
+
+            if (root.Value == node.Value)
+            {
+                if (root.Right != null)
+                {
+                    root = root.Right;
+                    while(root.Left != null)
+                    {
+                        root = root.Left;
+                    }
+                    return root;
+                }
+                return successor;
+            }
+
+            if (root.Value > node.Value)
+                return InOrderSuccessor(root.Left, node, root);
+            else if (root.Value < node.Value)
+                return InOrderSuccessor(root.Right, node, successor);
+            else
+                return null;
+        }
+        #endregion
+
+        #region 1.1. InOrderPredecessor of BST
+        public BinaryNode InOrderPredecessor(BinaryNode root, BinaryNode node, BinaryNode predecessor)
+        {
+            if (root == null || node == null)
+            {
+                return predecessor;
+            }
+
+            if (root.Value == node.Value)
+            {
+                if (root.Left != null)
+                {
+                    while (root.Left != null)
+                    {
+                        root = root.Left;
+                    }
+                    return root;
+                }
+                return predecessor;
+            }
+
+            if (root.Value > node.Value)
+                return InOrderPredecessor(root.Left, node, predecessor);
+            else if (root.Value < node.Value)
+                return InOrderPredecessor(root.Right, node, root);
+            else
+                return null;
+        }
+        #endregion
+
+        #region 2. PreOrderTraversal
+        public void PreOrderTraversal(BinaryNode node)
+        {
+            if (node == null)
+                return;
+            Console.Write(node.Value + " ");
+            PreOrderTraversal(node.Left);
+            PreOrderTraversal(node.Right);
+        }
+        #endregion
+
+        #region 3. InOrderTraversal
+        public void InOrderTraversal(BinaryNode node)
+        {
+            if (node == null)
+                return;
+            InOrderTraversal(node.Left);
+            Console.Write(node.Value + " ");
+            InOrderTraversal(node.Right);
+        }
+        #endregion
+
+        #region 3.1. Print BST in a Given Range
+        public void PrintBSTGivenRange(BinaryNode node, int k1, int k2)
+        {
+            if (node == null)
+                return;
+
+            if (node.Value > k1)
+                PrintBSTGivenRange(node.Left, k1, k2);
+
+            if (node.Value >= k1 && node.Value <= k2)
+                Console.WriteLine(node.Value);
+
+            if (node.Value < k2)
+                PrintBSTGivenRange(node.Right, k1, k2);
+        }
+        #endregion
+
+        #region 4. PostOrderTraversal
+        public void PostOrderTraversal(BinaryNode node)
+        {
+            if (node == null)
+                return;
+            PostOrderTraversal(node.Left);
+            PostOrderTraversal(node.Right);
+            Console.Write(node.Value + " ");
+        }
+        #endregion
+
+        #region 5. LevelOrderTraversal
+        public void LevelOrderTraversal()
+        {
+            var level = HeightOfBT();
+            for (var i = 0; i < level; i++)
+            {
+                LevelTraversal(_root, i, 0);
+            }
+        }
+
+        private void LevelTraversal(BinaryNode node, int printLevel, int currentLevel)
+        {
+            if (node == null)
+                return;
+
+            if (printLevel == currentLevel)
+            {
+                Console.Write(node.Value + " ");
+                return;
+            }
+            LevelTraversal(node.Left, printLevel, currentLevel + 1);
+            LevelTraversal(node.Right, printLevel, currentLevel + 1);
+        }
+        #endregion
+
+        #region 6. Insert Into BST
+        public void InsertIntoBST(int value)
+        {
+            _root = InsertIntoBST(_root, value);
+        }
+
+        private BinaryNode InsertIntoBST(BinaryNode node, int value)
+        {
+            if (node == null)
+            {
+                node = new BinaryNode(value);
+                return node;
+            }
+            if (value > node.Value)
+                node.Right = InsertIntoBST(node.Right, value);
+            else
+                node.Left = InsertIntoBST(node.Left, value);
+            return node;
+        }
+        #endregion
+
+        #region 7. Height of BST
+        public int HeightOfBT()
+        {
+            if (_height != 0)
+                return _height;
+
+            _height = HeightOfBT(_root);
+            return _height;
+        }
+
+        private int HeightOfBT(BinaryNode node)
+        {
+            if (node == null)
+                return 0;
+
+            var lHeight = HeightOfBT(node.Left);
+            var rHeight = HeightOfBT(node.Right);
+            return lHeight > rHeight ? lHeight + 1 : rHeight + 1;
+        }
+        #endregion
+
+        #region 8. Find a Node - Level in the Binary Tree
+        public int FindNode(int toFind)
+        {
+            return FindNode(_root, 0, toFind);
+        }
+
+        private int FindNode(BinaryNode node, int level, int toFind)
+        {
+            if (node == null)
+                return -1;
+
+            if (node.Value == toFind)
+                return level;
+
+            var nodeLevel = FindNode(node.Left, level + 1, toFind);
+            if (nodeLevel == -1)
+                nodeLevel = FindNode(node.Right, level + 1, toFind);
+            return nodeLevel;
+        }
+        #endregion
+
+        #region 9. Find LCA in Binary Tree
+        public int FindLCA(int node1, int node2)
+        {
+            n1 = false;
+            n2 = false;
+            lcaLevel = 0;
+
+            var lca = FindLCA(_root, node1, node2, lcaLevel);
+            //if (n1 && n2)
+            if (lca != null)
+            {
+                //Console.WriteLine("LCA distance from root is {0}", lcaLevel);
+                return lca.Value;
+            }
+
+            return -1;
+        }
+
+        private BinaryNode FindLCA(BinaryNode root, int node1, int node2, int level)
+        {
+            if (root == null)
+            {
+                level = -1;
+                return null;
+            }
+
+            if (node1 == root.Value)
+            {
+                n1 = true;
+                lcaLevel = level;
+                return root;
+            }
+            if (node2 == root.Value)
+            {
+                n2 = true;
+                lcaLevel = level;
+                return root;
+            }
+
+            var leftLCA = FindLCA(root.Left, node1, node2, level + 1);
+            var rightLCA = FindLCA(root.Right, node1, node2, level + 1);
+
+            if (leftLCA != null && rightLCA != null)
+            {
+                lcaLevel = level;
+                return root;
+            }
+
+            return leftLCA != null ? leftLCA : rightLCA;
+        }
+        #endregion
+
+        #region 10. Find LCA in BST
+        public int FindLCAInBST(int node1, int node2)
+        {
+            var lca = FindLCAInBST(_root, node1, node2);
+            if (lca == null)
+                return -1;
+            else return lca.Value;
+        }
+
+        private BinaryNode FindLCAInBST(BinaryNode node, int node1, int node2)
+        {
+            if (node == null)
+                return null;
+
+            if (node.Value > node1 && node.Value > node2)
+                return FindLCAInBST(node.Left, node1, node2);
+
+            if (node.Value < node1 && node.Value < node2)
+                return FindLCAInBST(node.Right, node1, node2);
+
+            return node;
+        }
+        #endregion
+
+        #region 11. Distance Between Nodes
+        public int DistanceBetweenNodes(int node1, int node2)
+        {
+            //APPROACH 1
+            //Find Node1 distance from Root
+            //Find Node2 distance from Root
+            //Find LCA distance from Root
+            //Distance between nodes ::: D1 + D2 - (2 * DLCA)
+            /*var d1 = FindNode(_root, 0, node1);
+            var d2 = FindNode(_root, 0, node2);
+            var lca = FindLCA(node1, node2);
+
+            if (d1 == -1 || d2 == -1)
+                return -1;
+
+            return d1 + d2 - (2 * lcaLevel);*/
+
+            //APPROACH 2
+            //Similar to above approach but instead of 3 separate calls to find the distance, find D1 or D2 or Both during DLCA calculation
+            d1 = -1;
+            d2 = -1;
+            var dLCA = FindLCADistance(_root, node1, node2, lcaLevel);
+
+            if (dLCA == -1)
+                return -1;
+
+            if (d1 == -1)
+                d1 = FindNode(_root, 0, node1);
+
+            if (d2 == -1)
+                d2 = FindNode(_root, 0, node2);
+
+            if (d1 == -1 || d2 == -1)
+                return -1;
+
+            return d1 + d2 - (2 * dLCA);
+        }
+
+        public int FindLCADistance(int node1, int node2)
+        {
+            lcaLevel = 0;
+            return FindLCADistance(_root, node1, node2, lcaLevel);
+        }
+
+        private int FindLCADistance(BinaryNode root, int node1, int node2, int level)
+        {
+            if (root == null)
+            {
+                //d1 = -1;
+                //d2 = -1;
+                return -1;
+            }
+            if (root.Value == node1)
+            {
+                d1 = level;
+                return level;
+            }
+            if (root.Value == node2)
+            {
+                d2 = level;
+                return level;
+            }
+
+            var lDLCA = FindLCADistance(root.Left, node1, node2, level + 1);
+            var rDLCA = FindLCADistance(root.Right, node1, node2, level + 1);
+
+            if (lDLCA != -1 && rDLCA != -1)
+            {
+                return level;
+            }
+
+            return lDLCA != -1 ? lDLCA : rDLCA;
+        }
+        #endregion
+
+        #region 12. Is Given Tree a BST
+        public bool IsBinarySearchTree()
+        {
+            return IsBinarySearchTree(_root, int.MinValue, int.MaxValue);
+        }
+
+        private bool IsBinarySearchTree(BinaryNode node, int min, int max)
+        {
+            if (node == null)
                 return true;
+
+            if (node.Value < min || node.Value > max)
+                return false;
+
+            var lNode = false;
+            var rNode = false;
+            lNode = IsBinarySearchTree(node.Left, min, node.Value - 1);
+            if (lNode) // Avoid calling the right node if left node is already false
+            {
+                rNode = IsBinarySearchTree(node.Right, node.Value + 1, max);
+            }
+
+            return lNode && rNode;
+        }
+        #endregion
+
+        #region 13. Kth Smallest element in BST
+        public int KthSmallestElement(BinaryNode root, int level, int k)
+        {
+            Console.WriteLine("Level " + level);
+            if (root == null)
+                return level;
+
+            if (level < k)
+            {
+                level = KthSmallestElement(root.Left, level, k) + 1;
+            }
+            if (level == k)
+            {
+                Console.WriteLine(root.Value);
+            }
+            if (level < k)
+            {
+                level = KthSmallestElement(root.Right, level, k);
+            }
+            return level;
+        }
+        #endregion
+
+        #region 14. Sorted Array to BST
+        public void SortedArrayToBST(int[] arr, int min, int max)
+        {
+            if (min > max)
+                return;
+
+            var mid = min + ((max - min) / 2);
+            InsertIntoBST(arr[mid]);
+            SortedArrayToBST(arr, min, mid - 1);
+            SortedArrayToBST(arr, mid + 1, max);
+            return;
+        }
+        #endregion
+
+        #region 15. Largest BST
+        public int LargestBST()
+        {
+            var largestBST = LargestBST(_root);
+            if (largestBST != null)
+                return largestBST.Height;
+            return 0;
+        }
+
+        private BST LargestBST(BinaryNode node)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+
+            var left = LargestBST(node.Left);
+            var right = LargestBST(node.Right);
+            if (left == null && right == null)
+            {
+                return new BST
+                {
+                    HighestLeft = node.Value,
+                    LowestRight = node.Value,
+                    Height = 1
+                };
+            }
+            else if (node.Value > left.HighestLeft && node.Value < right.LowestRight)
+            {
+                return new BST
+                {
+                    HighestLeft = node.Left.Value > right.LowestRight ? node.Left.Value : right.LowestRight,
+                    LowestRight = node.Right.Value < left.HighestLeft ? node.Right.Value : left.HighestLeft,
+                    //HighestLeft = left.HighestLeft > right.LowestRight ? left.HighestLeft : right.LowestRight,
+                    //LowestRight = left.HighestLeft < right.LowestRight ? left.HighestLeft : right.LowestRight,
+                    Height = left.Height + right.Height + 1
+                };
+            }
+
+            if (node.Value > left.HighestLeft)
+            {
+                return new BST
+                {
+                    Height = left.Height
+                };
+            }
+
+            if (node.Value < right.LowestRight)
+            {
+                return new BST
+                {
+                    Height = right.Height
+                };
+            }
+            return null;
+        }
+        #endregion
+
+        #region 16. Add greater values to every given node - Reverse PreOrder Traversal
+        public void ReverseInOrder()
+        {
+            var add = 0;
+            ReverseInOrder(_root, ref add);
+        }
+
+        private void ReverseInOrder(BinaryNode node, ref int add)
+        {
+            if (node == null)
+            {
+                return;
+            }
+
+            ReverseInOrder(node.Right, ref add);
+            add += node.Value;
+            Console.WriteLine(add);            
+            ReverseInOrder(node.Left, ref add);
+        }
+        #endregion
+
+        #region 17. Has internal node has only one child?
+        public bool HasOnlyOneChild(int[] preOrderArray, int length)
+        {
+            int nextDifference = 0, lastDifference = 0;
+            for (var i = 0; i < length - 2; i++)
+            {
+                nextDifference = preOrderArray[i] - preOrderArray[i+1];
+                lastDifference = preOrderArray[i] - preOrderArray[length - 1];
+                if(nextDifference * lastDifference < 0)
+                    return false;
+            }
+            return true;
+        }
+        #endregion
+
+        #region 18. Is Triplet Present?
+        Dictionary<int, bool> tripletDict = new Dictionary<int, bool>();
+        public bool IsTripletPresent(int[] arr)
+        {
+            if (arr == null || arr.Length < 3)
+                return false;
+
+            foreach(var i in arr)
+            {
+                tripletDict.Add(i, true);
+            }
+
+            for (var i = 0; i < arr.Length; i++)
+            {
+                for (var j = i + 1; j < arr.Length; j++)
+                {
+                    var element = arr[i] + arr[j];
+                    if (tripletDict.ContainsKey(-element))
+                        return true;
+                }
+            }
             return false;
         }
         #endregion
-
-        #region HashTable
-        public Hashtable BuildHashTable(Student[] students)
-        {
-            var studentHash = new Hashtable();
-            foreach (var student in students)
-            {
-                studentHash.Add(student.Id, student);
-            }
-            return studentHash;
-        }
-        #endregion
-
-        #region Dictionary
-        public Dictionary<int, Student> BuildDictionary(Student[] students)
-        {
-            var studentDictionary = new Dictionary<int, Student>();
-            foreach (var student in students)
-            {
-                studentDictionary.Add(student.Id, student);
-            }
-            return studentDictionary;
-        }
-        #endregion
-
-        #region HashSet
-        public HashSet<Student> BuildHashSet(Student[] students)
-        {
-            var studentSet = new HashSet<Student>();
-            foreach(var student in students)
-            {
-                studentSet.Add(student);
-            }
-            return studentSet;
-        }
-        #endregion
-
-        #region ArrayList
-        public ArrayList BuildArrayList(string[] words, string[] more)
-        {
-            var sentence = new ArrayList();
-            foreach(var word in words)
-            {
-                sentence.Add(word);
-            }
-            foreach(var m in more)
-            {
-                sentence.Add(m);
-            }
-            return sentence;
-        }
-        #endregion
-
-        #region String Sentence
-        public string BuildString(string[] words)
-        {
-            var sentence = string.Empty;
-            foreach(var word in words)
-            {
-                sentence += word;
-            }
-            return sentence;
-        }
-        #endregion
-
-        #region String Builder
-        public string BuildStringBuilder(string[] words)
-        {
-            var sentence = new StringBuilder();
-            foreach (var word in words)
-            {
-                sentence.Append(word);
-            }
-            return sentence.ToString();
-        }
-        #endregion
     }
     #endregion
 
-    #region Queue - My Implementation
-    public class MyQueue
+    #region Doubly Linked List
+    public class DLL
     {
-        private int _capacity;
-        private int[] _arrQ;
-        private int _end = 0;
-        private int _start = 0;
-        private int _count = 0;
+        private Node _root;
 
-        public MyQueue(int capacity)
+        public void AddNode(int value)
         {
-            this._capacity = capacity;
-            _arrQ = new int[_capacity];
-        }
-
-        public bool IsEmpty()
-        {
-            return _count == 0;
-        }
-
-        public bool IsFull()
-        {
-            return _count == _capacity;
-        }
-
-        public void Enqueue(int i)
-        {
-            if (IsFull())
+            if (_root == null)
             {
-                throw new ApplicationException("Queue full");
+                _root = new Node(value);
+                return;
             }
-            else
+
+            var node = _root;
+            while(node.Next != null)
             {
-                _arrQ[_end % _capacity] = i;
-                _end++;
-                _count++;
+                node = node.Next;
             }
+            node.Next = new Node(value);
+            node.Next.Prev = node;
         }
 
-        public int Dequeue()
+        public int RootValue()
         {
-            if (IsEmpty())
+            if (_root != null)
+                return _root.Value;
+            return -1;
+        }
+
+        public void PrintNodes()
+        {
+            while(_root != null)
             {
-                throw new ApplicationException("Queue empty");
-            }
-            else
-            {
-                var j = _arrQ[_start % _capacity];
-                _start++;
-                _count--;
-                return j;
+                Console.WriteLine(_root.Value);
+                _root = _root.Next;
             }
         }
     }
     #endregion
 
-    #region Misc
-    public class Misc
+    #region Node
+    public class Node
     {
-        #region String Literals vs String Objects
-        public void StringLiteralObject()
+        private int _value;
+        public int Value { get { return _value; } }
+        public Node(int value)
         {
-            string abcd = "abcd";
-            string abc = "abcd";
-            Console.WriteLine(abcd == abc);
-            Console.WriteLine(abc.Equals(abcd));
-
-            string bcd = new string(new char[] { 'b', 'c', 'd' });
-            string bc = new string(new char[] { 'b', 'c', 'd' });
-            Console.WriteLine(bcd == bc);
-            Console.WriteLine(bcd.Equals(bc));
+            _value = value;
         }
-        #endregion
 
-        #region Hash Code
-        public void HashCode()
-        {
-            Console.WriteLine("abcd".GetHashCode());
-        }
-        #endregion
-
-        #region Array Slice
-        public void SliceArray()
-        {
-            var arr = new int[] { 0, 1, 2, 3, 4, 5, 6 };
-            var slice = new int[5 - 2];
-            Array.Copy(arr, 2, slice, 0, slice.Length);
-
-            foreach (var i in slice)
-                Console.WriteLine(i);
-        }
-        #endregion
+        public Node Prev;
+        public Node Next;
     }
     #endregion
 
-    #region Student
-    public class Student
+    #region BST - Misc
+    public class BST
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
+        public int HighestLeft { get; set; }
+        public int LowestRight { get; set; }
+        public int Height { get; set; }
+    }
+    #endregion
+
+    #region Binary Node
+    public class BinaryNode
+    {
+        private int _value;
+        public int Value { get { return _value; } }
+        public BinaryNode(int value)
+        {
+            _value = value;
+        }
+
+        public BinaryNode Left;
+        public BinaryNode Right;
     }
     #endregion
 }
